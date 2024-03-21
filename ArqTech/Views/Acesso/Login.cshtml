@@ -1,0 +1,33 @@
+﻿@model ArqTech.Models.Login1;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <form asp-controller="Acesso" asp-action="Login" method="post">
+        <h1>Login</h1>
+        <input type="email" placeholder="Email" asp-for="Email" />
+        <input type="password" placeholder="Password" asp-for="Senha" />
+
+        <label>
+            <input type="checkbox" asp-for="Logado" />
+            Mantenha logado.
+        </label>
+        <button type="submit">Login</button>
+
+        @if (ViewData["ValidarMensagem"] != null)
+        {
+            <br />
+            <br />
+            <label>@ViewData["ValidarMensagem"]</label>
+        }
+    </form>
+</body>
+</html>
